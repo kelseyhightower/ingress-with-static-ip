@@ -7,6 +7,32 @@ This tutorial will walk you through creating a `nginx` deployment and expose it 
 
 This tutorial only works on GCP or GKE.
 
+## TLDR;
+
+Set the `kubernetes.io/ingress.global-static-ip-name` annontation on the Ingress config to the name of a Google Cloud Platform (GCP) global IP address as created with the `gcloud compute addresses create` command.
+
+Example:
+
+Create a global IP address:
+
+```
+gcloud compute addresses create kubernetes-ingress --global
+```
+
+Set the `kubernetes.io/ingress.global-static-ip-name` annotation on the Ingress config:
+
+```
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "kubernetes-ingress"
+spec:
+  backend:
+    serviceName: nginx
+    servicePort: 80
+```
+
 ## Tutorial
 
 Create a global IP address named `kubernetes-ingress`:
