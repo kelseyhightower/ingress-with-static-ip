@@ -1,4 +1,4 @@
-# Creating an Kubernetes Ingress Controllers with a Static IP Address
+# Creating a Kubernetes Ingress Controller with a Static IP Address on GCP or GKE
 
 This tutorial will walk you through creating an ingress controller on GKE with a static IP address. The use cases for doing this:
 
