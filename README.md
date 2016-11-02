@@ -33,6 +33,8 @@ spec:
     servicePort: 80
 ```
 
+> The `kubernetes.io/ingress.global-static-ip-name` only works on GCP or GKE.
+
 ## Tutorial
 
 Create a global IP address named `kubernetes-ingress`:
