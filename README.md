@@ -1,6 +1,6 @@
-# Creating a Kubernetes Ingress Controller with a Static IP Address on GCP or GKE
+# Creating a Kubernetes Ingress Resource with a Static IP Address on GCP or GKE
 
-This tutorial will walk you through creating a `nginx` deployment and expose it using a Kubernetes Ingress Controller associated with a static IP address on GKE. The use cases for doing this:
+This tutorial will walk you through creating a `nginx` deployment and expose it using a Kubernetes Ingress Resource associated with a static IP address on GKE. The use cases for doing this:
 
 * You want to configure DNS before exposing your application to the outside world.
 * Because you can.
@@ -57,7 +57,7 @@ kubectl expose deployment nginx --type NodePort
 
 > The service must be type NodePort to ensure the Ingress can perform health checks on the Pod.
 
-Create the `nginx` ingress controller. Save the `nginx` ingress controller config to a file named `nginx-ing.yaml`:
+Create the `nginx` ingress resource. Save the `nginx` ingress config to a file named `nginx-ing.yaml`:
 
 ```
 cat > nginx-ing.yaml << EOF
@@ -74,13 +74,13 @@ spec:
 EOF
 ```
 
-Create the `nginx` ingress controller:
+Create the `nginx` ingress resource:
 
 ```
 kubectl create -f nginx-ing.yaml
 ```
 
-After about 1 minute the `nginx` ingress controller should be ready for use and associated with the `kubernetes-ingress` global IP address created earlier. View the details of the `nginx` ingress controller:
+After about 1 minute the `nginx` ingress resource should be ready for use and associated with the `kubernetes-ingress` global IP address created earlier. View the details of the `nginx` ingress resource:
 
 ```
 kubectl get ing nginx
